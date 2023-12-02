@@ -6,11 +6,19 @@
 // DESCRIPTION
 // LIKE OR DISLIKE
 
+// COMPONENTS
+import Header from './Header'
+import Footer from './Footer'
+
 export default function Profile() {
     return (
-        <div className="Profile">
-            <h1>User's Profile Here. View it, and also click "edit" to edit.</h1>
-        </div>
+        <>
+            <Header />
+            <div className="Profile">
+                <h1>User Profile</h1>
+            </div>
+            <Footer />
+        </>
     )
 
 }
