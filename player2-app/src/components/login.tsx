@@ -71,8 +71,8 @@ const Login = () => {
             <button type="submit" className="login-button">Log In</button>
             {/* <p>{formState.valid}</p> */}
             </form>
-            <div className="Create-Account">
-                <p>Don't Have an Account?<a className="create-account"><Link to="/createaccount">Create Account</Link></a></p>
+            <div className="Sign-Up">
+                <p>Don't Have an Account?<a className="sign-up"><Link to="/signup"> Sign Up</Link></a></p>
             </div>
         </div>
     )

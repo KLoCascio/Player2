@@ -15,14 +15,13 @@ import Messages from './components/messages.tsx'
 import Profile from './components/profile.tsx'
 import SignUp from './components/signup.tsx'
 
-
 // MISC.
 import './index.css'
 
 const router = createBrowserRouter([
   {
-      path: "/",
-      element:<App />,
+    path: "/",
+    element:<App />,
   },
   {
     path: "/login",
@@ -52,6 +51,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-          <RouterProvider router={router} />
+      <RouterProvider router={router} />
   </React.StrictMode>,
 )
