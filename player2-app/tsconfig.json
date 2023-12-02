@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "rootDir": "./src",
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -15,23 +14,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Emit */
-    "sourceMap": true,
-    "outDir": "./dist",
-    "removeComments": true,
-    "noEmitOnError": true,
-
-    /* Interop Constraints */
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true, 
-
     /* Linting */
     "strict": true,
-    "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "./dist",
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
