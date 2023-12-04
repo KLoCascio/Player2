@@ -10,6 +10,7 @@ function App() {
   return (
     <>
       <Header />
+      {/* Tinder Cards */}
       <h1>Hello World</h1>
       <Footer />
     </>
