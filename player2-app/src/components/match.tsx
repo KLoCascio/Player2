@@ -8,12 +8,12 @@ import TinderCard from "react-tinder-card"
 export default function Match() {
     const [people, setPeople] = useState([
         {
-            name: 'Danny McTinder',
-            photo: 'https://www.realmenrealstyle.com/wp-content/uploads/2023/10/Essential-Pieces-for-Cottagecore-linen-shirt-suspenders.jpg',
-        },
-        {
             name: 'Sandra DeTinder',
             photo: 'https://e00-marca.uecdn.es/assets/multimedia/imagenes/2023/04/20/16819946402834.jpg',
+        },
+        {
+            name: 'Danny McTinder',
+            photo: 'https://www.realmenrealstyle.com/wp-content/uploads/2023/10/Essential-Pieces-for-Cottagecore-linen-shirt-suspenders.jpg',
         },
     ])
 
