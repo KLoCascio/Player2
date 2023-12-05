@@ -3,9 +3,6 @@ import { useParams, Link } from 'react-router-dom'
 
 import axios from 'axios'
 
-// COMPONENTS
-import Header from './Header'
-
 const Login = () => {
     const [token, setToken] = useState(null)
 
@@ -36,7 +33,6 @@ const Login = () => {
 
     return (
         <>
-            <Header />
             <div className="Login">
                 <h2>LogIn</h2>
                 <form onSubmit={handleSubmit} className="login-form">

@@ -12,7 +12,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  border: 2px solid black;
 }
 
 h1 {
@@ -65,10 +64,12 @@ button:focus-visible {
 /* HEADER */
 .Header {
   background-color: #011936;
-  padding-left: 0;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 100px;
+  align-content: center;
+}
+
+.Header img {
+  height: 175px;
+  width: 100%;
 }
 
 /* LOG-IN */
@@ -82,7 +83,25 @@ button:focus-visible {
 
 
 /* MATCH */
+.card {
+  position: relative;
+  width: 600px;
+  padding: 20px;
+  max-width: 85vw;
+  height: 50vh;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 18px 53px 0px rgba(0,0,0,0.3);
+}
 
+.tinderCards_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+  
+
+}
 
 /* MESSAGING */
 
@@ -122,4 +141,24 @@ button:focus-visible {
 /* FOOTER */
 .Footer {
   background-color: #05071D;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Footer img {
+  max-width: 40px;
+}
+
+.Footer button {
+  background-color: rgba(f,f,0,1);
+  justify-content: space-between;
+  color: #F4FFFD;
+}
+
+.select-button {
+  margin-left: 10px;
+}
+
+.start-button {
+  margin-right: 10px;
 }
