@@ -1,7 +1,7 @@
 export default function Header() {
     return (
         <div className="Header">
-            <h1>Player2</h1>
+            <img src="./src/assets/P2Logo.PNG" alt="Player2 Logo" />
         </div>
     )
 

@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
     return (
         <div className="Footer">
-            <button className="nav-link"><Link to="/match">M</Link> </button>
-            <button className="nav-link"><Link to="/profile"> P</Link></button>
-            <button className="nav-link"><Link to="/messages"> C</Link></button>
+            <button className="select-button"><Link to="/messages"><img src="./src/assets/buttons/SelectButton.png" /></Link> </button>
+            <button className="start-button"><Link to="/profile"><img src="./src/assets/buttons/StartButton.png" /></Link></button>
         </div>
     )
 

@@ -8,6 +8,8 @@ import {
 
 // COMPONENTS
 import App from './App.tsx'
+import Header from './components/Header.tsx'
+import Footer from './components/Footer.tsx'
 import Login from './components/login.tsx'
 import Match from './components/match.tsx'
 import MatchProfile from './components/matchprofile.tsx'
@@ -21,31 +23,63 @@ import './index.css'
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<App />,
+    element:
+      <>
+        <Header />
+        <App />
+      </>
   },
   {
     path: "/login",
-    element:<Login />,
+    element:
+      <>
+        <Header />
+        <Login />
+      </>
   },
   {
     path: "/match",
-    element:<Match />,
+    element:
+      <>
+        <Header />
+        <Match />
+        <Footer />
+      </>
   },
   {
     path: "/matchprofile",
-    element:<MatchProfile />,
+    element:
+      <>
+        <Header />
+        <MatchProfile />
+        <Footer />
+      </>
   },
   {
     path: "/messages",
-    element:<Messages />,
+    element:
+      <>
+        <Header />
+        <Messages />
+        <Footer />
+      </>
   },
   {
     path: "/profile",
-    element:<Profile />,
+    element:
+      <>
+        <Header />
+        <Profile />
+        <Footer />
+      </>
   },
   {
     path: "/signup",
-    element:<SignUp />,
+    element:
+      <>
+        <Header />
+        <SignUp />
+      </>
   },
 ])
 

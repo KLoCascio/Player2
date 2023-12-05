@@ -1,18 +1,13 @@
 // import { useState } from 'react'
 import './App.css'
 
-// COMPONENTS
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Match from './components/match'
 
 function App() {
 
   return (
     <>
-      <Header />
-      {/* Tinder Cards */}
-      <h1>Hello World</h1>
-      <Footer />
+      <Match />
     </>
   )
 }

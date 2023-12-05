@@ -2,9 +2,6 @@ import React, { useState, ChangeEvent, FormEvent } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
-// COMPONENTS
-import Header from './Header'
-
 interface SignUpProps {}
 
 interface SignUpState {
@@ -73,7 +70,6 @@ const SignUp: React.FC<SignUpProps> = () => {
 
   return (
     <>
-      <Header />
       <div className="Create-Account">
         <h2 className="title">SIGN UP</h2>
         <form onSubmit={handleSubmit} className="signup-form">
