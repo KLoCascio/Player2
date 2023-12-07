@@ -2,9 +2,9 @@ const { Schema, model } = require('mongoose')
 
 const profileSchema = new Schema(
     {
-        name: { type: String, required: true },
-        photo: { type: String, required: true },
-        aboutMe: { type: String, required: true },
+        profileName: { type: String, required: true },
+        profilePhoto: { type: String, required: true },
+        profileAboutMe: { type: String, required: true },
     },
     { timestamps: true }
 )
