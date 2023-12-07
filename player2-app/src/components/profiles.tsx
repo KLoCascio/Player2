@@ -9,8 +9,12 @@ interface Profile {
   profileAboutMe: string
 }
 
-export default function Profiles() {
-    const [profiles, setProfile] = useState<Profile[]>([])
+interface ProfilesProps {
+  profiles: Profile[]; // Correct the prop name
+}
+
+export default function Profiles(props: ProfilesProps) {
+    const [profiles, setProfile] = useState<Profile[]>([]);
     const [isModalVisible, setIsModalVisible] = useState(false)
     const [profile, setProfileName ] = useState(null)
     const { id } = useParams()
@@ -86,7 +90,7 @@ export default function Profiles() {
         const newProfileName = prompt('Enter the new name:')
         if (newProfileName !== null) {
             try {
-                const response = await axios.put(`http://localhost:3001/activities/657129208c52c7bd67138ff3`, {
+                const response = await axios.put('http://localhost:3001/activities/657129208c52c7bd67138ff3', {
                     profileName: newProfileName,
                 })
 
@@ -149,8 +153,8 @@ useEffect(() => {
                   </Link>
                 </div>
             ))}
-            <button onClick={toggleModal} className="edit-profile-btn">
-                    <h3>Create Profile</h3>
+            {/* <button onClick={toggleModal} className="edit-profile-btn">
+                    <h3>Edit Profile</h3>
                 </button>
 
                 {isModalVisible && (
@@ -190,6 +194,6 @@ useEffect(() => {
                             </button>
                         </div>
                     </div>
-                    )}
+                    )} */}
             </div>
     )}

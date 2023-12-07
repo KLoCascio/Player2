@@ -173,3 +173,7 @@ button:focus-visible {
 .start-button {
   margin-right: 10px;
 }
+
+.Profile img {
+  width: 200px;
+}

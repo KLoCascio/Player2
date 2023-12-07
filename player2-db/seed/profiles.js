@@ -7,14 +7,9 @@ const main = async () => {
   const profilesData = [
     {
       profileName: "Kyndal LoCascio",
-      profilePhoto: "https://png.pngtree.com/element_our/20200610/ourmid/pngtree-character-default-avatar-image_2237203.jpg",
+      profilePhoto: "https://cdn5.vectorstock.com/i/1000x1000/27/74/fisherman-holding-big-fish-by-tail-vector-9462774.jpg",
       profileAboutMe: "Your favorite NYC Programmer, Gamer and Comedian.",
     },
-    {
-      profileName: "Zach LoCascio",
-      profilePhoto: "https://png.pngtree.com/element_our/20200610/ourmid/pngtree-character-default-avatar-image_2237203.jpg",
-      profileAboutMe: "Your second favorite NYC Programmer, Gamer and Comedian.",
-  },
   ]
 
   await Profiles.insertMany(profilesData)
