@@ -12,6 +12,12 @@ async function getProfile(req, res) {
 async function getProfileById(req, res) {
     try {
         const profile = await Profiles.findById(req.params.id)
+
+        if (!profile) {
+            // If the profile with the given ID is not found, send a 404 response.
+            return res.status(404).json({ error: 'Profile not found' })
+        }
+
         res.status(200).send(profile)
     } catch (e) {
         return res.status(500).json({ error: e.message })
@@ -34,9 +40,13 @@ async function updateProfile(req, res) {
     try {
         const id = req.params.id
         const updatedProfile = await Profiles.findByIdAndUpdate(id, req.body, { new: true })
+
         if (updatedProfile) {
             return res.status(200).json(updatedProfile)
         }
+
+        // If the profile with the given ID is not found, send a 404 response.
+        return res.status(404).json({ error: 'Profile not found' })
     } catch (e) {
         return res.status(500).json({ error: e.message })
     }
@@ -45,11 +55,14 @@ async function updateProfile(req, res) {
 async function deleteProfile(req, res) {
     try {
         const id = req.params.id
-        const deletedProfile = await Profiles.findByIdAndDelete(id, req.body, { new: true })
+        const deletedProfile = await Profiles.findByIdAndDelete(id)
+
         if (deletedProfile) {
             return res.status(200).send('Profile Deleted')
         }
-        throw new Error("{Profile} not found")
+
+        // If the profile with the given ID is not found, send a 404 response.
+        return res.status(404).json({ error: 'Profile not found' })
     } catch (e) {
         return res.status(500).json({ error: e.message })
     }

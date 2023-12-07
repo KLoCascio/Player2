@@ -25,7 +25,7 @@ const SignUp: React.FC<SignUpProps> = () => {
 
   const navigate = useNavigate()
   const [form, setForm] = useState(initialSignUp)
-  const [platforms, setPlatforms] = useState({ pc: false, nintendo: false, xbox: false, playstation: false });
+  const [platforms, setPlatforms] = useState({ pc: false, nintendo: false, xbox: false, playstation: false })
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()

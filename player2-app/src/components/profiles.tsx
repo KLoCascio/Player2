@@ -1,10 +1,19 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 
+interface Profile {
+  _id: string
+  profileName: string
+  profilePhoto: string
+  profileAboutMe: string
+}
+
 export default function Profiles() {
-    const [profiles, setProfile] = useState([])
+    const [profiles, setProfile] = useState<Profile[]>([])
     const [isModalVisible, setIsModalVisible] = useState(false)
+    const [profile, setProfileName ] = useState(null)
+    const { id } = useParams()
 
     const toggleModal = () => {
         setIsModalVisible(!isModalVisible)
@@ -16,12 +25,12 @@ export default function Profiles() {
         }
     }
 
-
     useEffect(() => {
         const getProfile = async () => {
           try {
-            const response = await axios.get(`http://localhost:3001/profiles`)
+            const response = await axios.get('http://localhost:3001/profiles')
             const allProfiles = response.data
+            console.log('getProfile:', allProfiles)
             setProfile(allProfiles)
           } catch (error) {
             console.error('Error fetching and sorting Profiles:', error)
@@ -37,11 +46,11 @@ export default function Profiles() {
         }
     }, [isModalVisible])
 
-    const [newProfile, setNewProfile] = useState({
-        profileName: '',
-        profilePhoto: '',
-        profileAboutMe: '',
-      })
+    const [newProfile, setNewProfile] = useState<Profile>({
+      profileName: '',
+      profilePhoto: '',
+      profileAboutMe: '',
+    } as Profile)
 
     const handleInputChange = (e) => {
         const { id, value } = e.target
@@ -72,6 +81,51 @@ export default function Profiles() {
           console.error('Error adding profile:', error)
         }
       }
+    
+      const handleUpdateProfile = async () => {
+        const newProfileName = prompt('Enter the new name:')
+        if (newProfileName !== null) {
+            try {
+                const response = await axios.put(`http://localhost:3001/activities/657129208c52c7bd67138ff3`, {
+                    profileName: newProfileName,
+                })
+
+                const updatedProfileName = response.data
+
+                setProfileName(updatedProfileName)
+            } catch (error) {
+                console.error('Error updating activity:', error)
+            }
+        }
+    }
+
+  const handleDeleteProfile = async () => {
+    try {
+        await axios.delete(`http://localhost:3001/profiles/${id}`)
+        window.location.href = '/profiles'
+    } catch (error) {
+        console.error('Error deleting profile:', error)
+    }
+}
+
+useEffect(() => {
+  const getProfileDetails = async () => {
+    try {
+      if (!id) {
+        return
+      }
+
+      const response = await axios.get(`http://localhost:3001/profiles/${id}`)
+      setProfile(response.data._id)
+      console.log('second:', response.data._id)
+    } catch (error) {
+      console.error('Error Fetching Profile Details:', error)
+    }
+  }
+
+  getProfileDetails()
+}, [id])
+
 
     return (
         <div className="Profile">
@@ -84,12 +138,19 @@ export default function Profiles() {
                         <img className="profile-photo" src={profile.profilePhoto} alt="Profile Photo" />
                         <h3 className="profile-aboutMe">{profile.profileAboutMe}</h3>
                     </div>
+                    <div className="details-button-container">
+                    <button onClick={handleUpdateProfile} className="update-button">
+                        Update
+                    </button>
+                    <button onClick={handleDeleteProfile} className="delete-button">
+                        Delete
+                    </button>
+                </div>
                   </Link>
                 </div>
             ))}
-
-                <button onClick={toggleModal} className="edit-profile-btn">
-                    <h3>Edit Profile</h3>
+            <button onClick={toggleModal} className="edit-profile-btn">
+                    <h3>Create Profile</h3>
                 </button>
 
                 {isModalVisible && (
