@@ -63,7 +63,7 @@ Ditch the generic dating apps and level up your love life with Gamr. Download to
 01. HTML
 02. CSS
 03. React
-04. Mongoose
+04. MongoDB
 05. Express
 06. Node
-07. Extra 
+07. TypeScript 

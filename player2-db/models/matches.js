@@ -12,4 +12,4 @@ const matchesSchema = new Schema(
 
 const Matches = model('Matches', matchesSchema)
 
-module.exports = Matches
+module.exports = { Matches }
