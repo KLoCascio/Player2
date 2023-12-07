@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { useParams, Link } from 'react-router-dom'
+import { useState } from "react"
+import { Link } from 'react-router-dom'
 
 import axios from 'axios'
 
@@ -9,7 +9,7 @@ const Login = () => {
     const [form, setForm] = useState({
         userName: '',
         password: '',
-      });
+      })
 
       const handleChange = (e) => {
         const { name, value } = e.target
