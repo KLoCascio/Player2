@@ -14,7 +14,7 @@ import Login from './components/login.tsx'
 import Match from './components/match.tsx'
 import MatchProfile from './components/matchprofile.tsx'
 import Messages from './components/messages.tsx'
-import Profile from './components/profile.tsx'
+import Profiles from './components/profiles.tsx'
 import SignUp from './components/signup.tsx'
 
 // MISC.
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
     element:
       <>
         <Header />
-        <Profile />
+        <Profiles />
         <Footer />
       </>
   },

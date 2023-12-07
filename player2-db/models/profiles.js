@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose')
 
-const profilesSchema = new Schema(
+const profileSchema = new Schema(
     {
         name: { type: String, required: true },
         photo: { type: String, required: true },
@@ -9,6 +9,6 @@ const profilesSchema = new Schema(
     { timestamps: true }
 )
 
-const Profiles = model('Profiles', profilesSchema)
+const Profiles = model('Profiles', profileSchema)
 
-module.exports = Profiles
+module.exports = { Profiles }
