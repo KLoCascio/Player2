@@ -3,8 +3,19 @@ import { useParams, Link } from 'react-router-dom'
 import BackIcon from "../assets/icons/BackIcon.svg"
 import axios from 'axios'
 
-export default function ProfileDetails() {
-    const [profile, setProfile] = useState(null)
+interface Profile {
+    _id: string
+    profileName: string
+    profilePhoto: string
+    profileAboutMe: string
+  }
+  
+  interface ProfilesProps {
+    profiles: Profile[]; // Correct the prop name
+  }
+
+export default function ProfileDetails(props: ProfilesProps) {
+    const [profile, setProfile] = useState<Profile | null>(null);
     const { id } = useParams()
 
     const handleUpdateProfile = async () => {

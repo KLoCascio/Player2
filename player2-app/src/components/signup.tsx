@@ -5,22 +5,20 @@ import axios from "axios"
 interface SignUpProps {}
 
 interface SignUpState {
-  userName: string
-  firstName: string
+  profileName: string
+  photo: string
+  aboutMe: string
   email: string
   password: string
-  passwordConfirm: string
-  valid: string
 }
 
 const SignUp: React.FC<SignUpProps> = () => {
   const initialSignUp: SignUpState = {
-    userName: "",
-    firstName: "",
+    profileName: "",
+    photo: "",
+    aboutMe: "",
     email: "",
     password: "",
-    passwordConfirm: "",
-    valid: "",
   }
 
   const navigate = useNavigate()
@@ -30,7 +28,7 @@ const SignUp: React.FC<SignUpProps> = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (form.userName === "" || form.firstName === "" || form.email === "" || form.password === "" || form.passwordConfirm === "") {
+    if (form.photo === "" || form.profileName === "" || form.email === "" || form.password === "" || form.passwordConfirm === "") {
       setForm({ ...form, valid: "All Fields are Required!" })
       return
     }
@@ -42,11 +40,11 @@ const SignUp: React.FC<SignUpProps> = () => {
 
     try {
       const response = await axios.post("http://localhost:3001/signup", {
-        userName: form.userName,
-        firstName: form.firstName,
+        profileName: form.profileName,
+        photo: form.photo,
+        aboutMe: form.aboutMe,
         email: form.email,
         password: form.password,
-        platforms: platforms,
       })
 
       console.log(response)
@@ -73,24 +71,34 @@ const SignUp: React.FC<SignUpProps> = () => {
       <div className="Create-Account">
         <h2 className="title">SIGN UP</h2>
         <form onSubmit={handleSubmit} className="signup-form">
-          <label htmlFor="userName">Username:</label>
+          <label htmlFor="profileName">Name:</label>
           <br />
           <input
             type="text"
-            id="userName"
-            placeholder="Choose Username"
-            value={form.userName}
+            id="profileName"
+            placeholder="Enter Your Name"
+            value={form.profileName}
             onChange={handleChange}
           />
           <br />
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="photo">Photo:</label>
           <br />
           <input
             type="text"
-            id="firstName"
-            placeholder="Enter Your First Name"
-            value={form.firstName}
+            id="photo"
+            placeholder="Choose Your Best Selfie"
+            value={form.photo}
             onChange={handleChange}
+          />
+          <br />
+          <label htmlFor="aboutme">About Me:</label>
+          <br />
+          <input
+            type="text"
+            id="aboutMe"
+            placeholder="Tell Us About Yourself"
+            value={form.aboutMe}
+            onChange={handleChange} 
           />
           <br />
           <div className="platform-choices">
@@ -102,12 +110,12 @@ const SignUp: React.FC<SignUpProps> = () => {
             <button type="button" onClick={() => handlePlatformClick("playstation")} className={platforms.playstation ? "selected" : ""}>Playstation</button>
           </div>
         </div>
-        <label htmlFor="email">Email Address:</label>
+          <label htmlFor="email">Email Address:</label>
           <br />
           <input
             type="text"
             id="email"
-            placeholder="Enter Your Email"
+            placeholder="Enter your Email Address"
             value={form.email}
             onChange={handleChange}
           />
@@ -119,16 +127,6 @@ const SignUp: React.FC<SignUpProps> = () => {
             id="password"
             placeholder="Enter Password"
             value={form.password}
-            onChange={handleChange}
-          />
-          <br />
-          <label htmlFor="passwordConfirm">Confirm Password:</label>
-          <br />
-          <input
-            type="password"
-            id="passwordConfirm"
-            placeholder="Confirm Password"
-            value={form.passwordConfirm}
             onChange={handleChange}
           />
           <br />

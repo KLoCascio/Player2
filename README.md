@@ -1,9 +1,7 @@
 # Player2
 Find your Player 2
 
-## Wire Frame
-
-## Component Hierarchy Diagram
+![Player 2 Sign Up](player2-app/src/assets/SignUp.png)
 
 ## Links
 - Trello: https://trello.com/b/Yo19J4br/gamr
